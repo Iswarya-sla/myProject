@@ -1,0 +1,22 @@
+Rank and Dense rank
+-------------------
+	Both RANK() and DENSE_RANK() are window functions used to assign a rank to rows within a rank to row
+within a partition of a result set(usually ordered by a specific column like salary, score, etc.).
+
+RANK()
+------
+	Assigns a rank to each row.
+	Gaps are introduced if there are ties(same values).
+	Skips the next rank(s) after duplicates. 
+
+Syntax
+	RANK() OVER (PARTITION BY column ORDER BY column DESC);
+
+DENSE_RANK()
+-----------
+	Similar to RANK(), but does not skip ranks if there are ties.
+	Keeps ranks dense(continuous) event when duplicates exist.
+
+Syntax
+	DENSE_RANK() OVER (PARTITION BY column ORDER BY column DESC);
+	
